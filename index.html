@@ -13,32 +13,46 @@
   <!-- Style Sheet -->
   <link rel="stylesheet" href="style.css">
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto|Charmonman" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto|Press+Start+2P" rel="stylesheet">
 </head>
 
 <body>
   <div class="wrapper">
-    <h1>Simon Game</h1>
+    <div class="header">
+      <h1>Simon Game</h1>
+    </div>
+    <div id="instructions">
+      <h2>Instructions</h2>
+      <p>1. A random color will blink. Remember that color and click on it.</p>
+      <p>2. A sequence will be created by that color and a new one.</p>
+      <p>3. Keep remembering the colors and clicking on them following the sequence.</p>
+      <p>4. How far can you go? Are you ready?</p>
+      <button class="btn btn-success" id="play" onclick="startNewLevel()">Yes, I'm ready to play!</button>
+    </div>
+    <div class="level">
+      <h2 id="level"></h2>
+    </div>
     <div class="container">
       <div class="black"></div>
-      <div class="simon-button red"></div>
-      <div class="simon-button green"></div>
-      <div class="simon-button blue"></div>
-      <div class="simon-button yellow"></div>
+      <div class="simon-button" id="red" onmouseup="clickColor(red)"></div>
+      <div class="simon-button" id="green" onmouseup="clickColor(green)"></div>
+      <div class="simon-button" id="blue" onmouseup="clickColor(blue)"></div>
+      <div class="simon-button" id="yellow" onmouseup="clickColor(yellow)"></div>
+    </div>
+    <div id="game-over">
+      <h1>Game Over</h1>
+      <h3>You made until level: </h3>
+      <img src="game-over.gif" alt="Luigi crying">
+      <br>
+      <button class="btn btn-danger" onclick="startNewLevel()">Play Again</button>
     </div>
     <footer>
       © 2018 Paulo Kinopk: <a href="https://pkinopk.github.io/portfolio/" target="_blank">pkinopk.github.io/portfolio/</a>
     </footer>
   </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
-    crossorigin="anonymous"></script>
+  <!-- Script.js -->
+  <script src="script.js"></script>
 </body>
 
 </html>

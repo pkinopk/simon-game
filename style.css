@@ -3,16 +3,19 @@
   margin: 0;
 }
 
+body {
+  height: 100vh;
+  background: url(bg.png);
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
-  background: url(bg.png);
 }
 
-h1 {
+.header h1 {
   margin: 20px;
   text-transform: uppercase;
   font-family: 'Righteous', cursive;
@@ -22,8 +25,28 @@ h1 {
   color: #9e9e9e;
 }
 
+#instructions {
+  color: #9e9e9e;
+  border: 1px solid #9e9e9e;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding: 15px;
+  margin: 10px;
+}
+
+#instructions .btn {
+  display: block;
+  margin: auto;
+}
+
+.level h2 {
+  text-align: center;
+  color: #9e9e9e;
+}
+
 .container {
-  display: flex;
+  display: none; /* Only appears when user clicks play */
+  /* display: flex; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -41,19 +64,19 @@ h1 {
   border-style: solid;
 }
 
-.red {
+#red {
   background-color: #f44336;
   border-top-left-radius: 100%;
 }
-.green {
+#green {
   background-color: #4caf50;
   border-top-right-radius: 100%;
 }
-.blue {
+#blue {
   background-color: #2196f3;
   border-bottom-left-radius: 100%;
 }
-.yellow {
+#yellow {
   background-color: #ffeb3b;
   border-bottom-right-radius: 100%;
 }
@@ -65,8 +88,34 @@ h1 {
   position: absolute;
 }
 
+#game-over {
+  display: none;
+  position: absolute;
+  color: white;
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding-top: 45px;
+}
+#game-over h1 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 4rem;
+}
+
+#game-over img {
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
 footer {
-  margin: 2em;
+  margin-top: 2em;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   color: #9e9e9e;
@@ -80,5 +129,29 @@ footer {
   .black {
     width: 192px;
     padding-top: 192px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  footer {
+    margin: 1.5em;
+  }
+  #game-over h1 {
+    font-size: 2rem;
+  }
+  #game-over img {
+    transform: scale(0.8);
+  }
+  #game-over h3 {
+    font-size: 1.5rem;
   }
 }
