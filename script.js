@@ -138,7 +138,7 @@ function checkInput() {
     if (pattern[i] != userInput[i]) {
       gameOver();
       break;
-    } else if (userInput.length == pattern.length) startNewLevel();
+    } else if (i == pattern.length - 1) startNewLevel();
 }
 
 // Start a new level
